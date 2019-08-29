@@ -1,0 +1,16 @@
+.emp-table {
+  width: 100%;
+}
+
+tr.info td {
+  padding: 10px;
+}
+
+.selected a {
+  font-weight: bold;  
+  
+}
+
+.filterString {
+  font-style: italic;
+}

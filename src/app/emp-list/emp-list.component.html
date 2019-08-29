@@ -1,0 +1,46 @@
+<form [formGroup]="filterForm" (ngSubmit)="onSubmit(filterForm.value)">
+  <h2>Фильтр по имени:</h2>
+	<div>
+    <input type="text" formControlName="name"> 
+    <!-- <span *ngIf="filterName != ''"> (<a (click)="onSubmitClear(filterForm.value)">очистить</a>)</span> -->
+  <button type="submit">Применить</button>
+  </div>
+  
+
+<p *ngIf="filterName != ''">Применяется фильтр: <span class="filterString">«{{filterName}}»</span>
+</p>
+</form>
+
+<button *ngFor="let page_i of pages" (click)="setPage(page_i)">{{ page_i }}</button>
+
+<div *ngIf="empList.length > 0">
+
+	<table class="emp-table">
+		<thead>
+			<tr>
+				<th>#</th>
+        <th>Имя</th>
+				<th>e-mail</th>
+			</tr>
+		</thead>
+		<tbody>
+			<ng-container *ngFor="let employee of empList; let i = index">
+				<tr [class.selected]="employee.name == showDetails" [attr.data-index]="employee.id">
+					<td>{{i+1}}.</td><td><a (click)="setDetail(employee.name)">{{ employee.name }}</a></td>
+          <td>{{employee.email}}</td>
+				</tr>
+				<tr *ngIf="employee.name == showDetails" class="info">
+					<td colspan="3">{{ employee.title }}
+            <ul *ngIf="employee.numbers.length > 0">
+              <li *ngFor="let phnum of employee.numbers">{{ phnum.phNumber }}</li>
+            </ul>
+          </td>
+				</tr>
+			</ng-container>
+		</tbody>
+	</table>
+</div>
+
+<!-- TODO: Странно. При одной странице - тут второй блок страниц выводится без наименования ("1") страницы. -->
+
+<button *ngFor="let page_i of pages" (click)="setPage(page_i)">{{ page_i }}</button>

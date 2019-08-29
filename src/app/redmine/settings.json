@@ -1,0 +1,12 @@
+{
+  "defaultConnection": "remarkSupport",
+  "connections": {
+    "remarkSupport": {
+      "hostName": "support.remark.pro",
+      "apiKey": "",
+      "port": "",
+      "useSSL": true,
+      "version": ""
+    }
+  }
+}

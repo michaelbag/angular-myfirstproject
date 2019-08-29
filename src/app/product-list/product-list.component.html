@@ -1,0 +1,12 @@
+<h2>Products</h2>
+
+<div *ngFor="let product of products; let productId = index">
+  <h3>{{productId+1}}. <a [title]="product.name" [routerLink]="['/product', productId]">{{product.name}}</a></h3>
+  <button (click)="share()">share</button>
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
